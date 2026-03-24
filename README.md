@@ -18,8 +18,17 @@ This project is designed to explore and demonstrate the capabilities of GitHub C
 
 ```
 learn-github-copilot/
-├── README.md               # Project overview and guide
-├── CONTRIBUTING.md         # Guidelines for contributors
+├── .github/
+│   ├── copilot-instructions.md        # Repo-wide Copilot custom instructions
+│   ├── instructions/
+│   │   ├── python.instructions.md     # Path-specific instructions for Python
+│   │   └── javascript.instructions.md # Path-specific instructions for JavaScript
+│   └── prompts/
+│       ├── generate-tests.prompt.md   # Reusable prompt: generate unit tests
+│       └── add-example.prompt.md      # Reusable prompt: scaffold a new example
+├── AGENTS.md                          # Instructions for AI coding agents
+├── README.md                          # Project overview and guide
+├── CONTRIBUTING.md                    # Guidelines for contributors
 └── examples/
     ├── python/             # Python examples
     │   ├── basics.py       # Basic code generation examples
@@ -48,6 +57,23 @@ The `examples/` directory contains hands-on demonstrations of GitHub Copilot cap
 | [`examples/python/tests/test_basics.py`](examples/python/tests/test_basics.py) | pytest tests for the Python examples |
 | [`examples/javascript/basics.js`](examples/javascript/basics.js) | JavaScript utilities generated with Copilot assistance |
 | [`examples/javascript/tests/test_basics.js`](examples/javascript/tests/test_basics.js) | Node.js tests for the JavaScript examples |
+
+## GitHub Copilot Configuration Files
+
+This repository includes dedicated GitHub Copilot configuration files to enhance Copilot's suggestions and enable reusable workflows:
+
+| File | Purpose |
+|------|---------|
+| [`.github/copilot-instructions.md`](.github/copilot-instructions.md) | Repository-wide custom instructions applied to every Copilot interaction |
+| [`.github/instructions/python.instructions.md`](.github/instructions/python.instructions.md) | Path-specific instructions applied when working on Python files |
+| [`.github/instructions/javascript.instructions.md`](.github/instructions/javascript.instructions.md) | Path-specific instructions applied when working on JavaScript files |
+| [`.github/prompts/generate-tests.prompt.md`](.github/prompts/generate-tests.prompt.md) | Reusable Copilot Chat prompt for generating unit tests |
+| [`.github/prompts/add-example.prompt.md`](.github/prompts/add-example.prompt.md) | Reusable Copilot Chat prompt for scaffolding a new example |
+| [`AGENTS.md`](AGENTS.md) | Instructions for AI coding agents (Copilot agent mode, etc.) |
+
+### Using Reusable Prompts
+
+In VS Code or other supported editors, open Copilot Chat and type `/` to see the available prompts from `.github/prompts/`. Select a prompt to load it and fill in the requested input.
 
 ## Contributing
 
