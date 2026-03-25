@@ -27,7 +27,11 @@ function removeDuplicates(arr) {
 // --- Example 3: Deep clone an object ---
 
 function deepClone(obj) {
-  return structuredClone(obj);
+  // Use native structuredClone when available; fall back to JSON-based clone for older runtimes.
+  if (typeof structuredClone === "function") {
+    return structuredClone(obj);
+  }
+  return JSON.parse(JSON.stringify(obj));
 }
 
 
