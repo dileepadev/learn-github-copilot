@@ -62,12 +62,16 @@ function isPrime(n) {
 function groupBy(arr, key) {
   return arr.reduce((groups, item) => {
     const group = item[key];
+    // Guard against prototype pollution keys
+    if (group === "__proto__" || group === "constructor" || group === "prototype") {
+      return groups;
+    }
     if (!groups[group]) {
       groups[group] = [];
     }
     groups[group].push(item);
     return groups;
-  }, {});
+  }, Object.create(null));
 }
 
 

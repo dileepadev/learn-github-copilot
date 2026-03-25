@@ -1,13 +1,20 @@
 """Tests for examples/python/basics.py"""
 
 import pytest
-import sys
-import os
+import importlib.util
+from pathlib import Path
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from basics import factorial, is_palindrome, most_frequent, celsius_to_fahrenheit, flatten
+_BASICS_PATH = Path(__file__).resolve().parent.parent / "basics.py"
+_spec = importlib.util.spec_from_file_location("basics", _BASICS_PATH)
+_basics = importlib.util.module_from_spec(_spec)
+assert _spec.loader is not None
+_spec.loader.exec_module(_basics)
 
-
+factorial = _basics.factorial
+is_palindrome = _basics.is_palindrome
+most_frequent = _basics.most_frequent
+celsius_to_fahrenheit = _basics.celsius_to_fahrenheit
+flatten = _basics.flatten
 def test_factorial_base_cases():
     assert factorial(0) == 1
     assert factorial(1) == 1
