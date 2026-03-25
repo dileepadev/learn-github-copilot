@@ -81,4 +81,4 @@ Contributions and improvements are encouraged to enhance the quality and usefuln
 
 ## License
 
-This project is open for learning and exploration. Feel free to use the examples in your own projects.
+This repository does not currently include an explicit open-source license. All rights are reserved. You may browse and learn from the code in this repository, but you may not copy, distribute, or reuse it in your own projects without explicit permission from the project owner or until a LICENSE file is added.
